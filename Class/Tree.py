@@ -1,3 +1,8 @@
+"""
+Class Tree to represent tree structure of the meaning representation
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 class Tree:
     def __init__(self):
         self.parent = None

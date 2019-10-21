@@ -2,6 +2,11 @@ from random import randint
 import pickle as pkl
 import torch
 
+"""
+Class to generate batch and present to the model in random order
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 
 torch.manual_seed(1)
 

@@ -1,8 +1,8 @@
 from Src.seq2seq_attn import *
-import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 import seaborn as sns
+
+# not used in the report
 
 
 def convert_to_string(idx_list, form_manager):
@@ -60,7 +60,6 @@ def do_generate(encoder, decoder, attention_decoder, enc_w_list, word_manager, f
 
 
 def get_alignment_score(checkpoint, data_dir, idx, opt, using_gpu=False):
-    """idx: sample index"""
     # encoder, decoder, attention is inside
     encoder = checkpoint["encoder"]
     decoder = checkpoint["decoder"]

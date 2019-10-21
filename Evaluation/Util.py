@@ -6,6 +6,8 @@ from operator import itemgetter
 
 random.seed(1)
 
+# all commented line for debugging purpose
+
 
 def convert_to_tree(r_list, i_left, i_right, form_manager):
     t = Tree()
@@ -33,6 +35,7 @@ def convert_to_tree(r_list, i_left, i_right, form_manager):
 
 
 def norm_tree(r_list, form_manager):
+    # commented line for debug purpose
     # print("starting norm tree")
     # print(r_list)
     # test = convert_to_tree(r_list, 0, len(r_list), form_manager)
@@ -43,6 +46,7 @@ def norm_tree(r_list, form_manager):
     head = 0
     # for t in q:
     while head < len(q):
+        # commented line for debug purpose
         # print("head; {}, len q: {}\n".format(head, len(q)))
         t = q[head]
         # print('string')

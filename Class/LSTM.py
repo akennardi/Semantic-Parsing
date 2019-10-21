@@ -1,6 +1,11 @@
 import torch
 import torch.nn as nn
 
+"""
+# LSTM model based on Zaremba et al(2014)
+# Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 
 class LSTM(nn.Module):
     def __init__(self, opt):

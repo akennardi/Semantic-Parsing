@@ -1,9 +1,8 @@
-# TODO: implement training a transfer learning model here
-
 from Src.seq2seq_attn import *
 
 
-def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer, attention_decoder_optimizer, criterion, using_gpu, form_manager):
+def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer,
+                  attention_decoder_optimizer, criterion, using_gpu, form_manager):
     # encode, decode, backward, return loss
     encoder_optimizer.zero_grad()
     decoder_optimizer.zero_grad()
@@ -11,7 +10,6 @@ def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encode
     enc_batch, enc_len_batch, dec_batch = train_loader.random_batch()
     # do not predict after <E>
     enc_max_len = enc_batch.size(1)
-    # because you need to compare with the next token!!
     dec_max_len = dec_batch.size(1) - 1
 
     enc_outputs = torch.zeros((enc_batch.size(0), enc_max_len, encoder.hidden_size), requires_grad=False)
@@ -60,7 +58,7 @@ def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encode
 
 
 def main(opt):
-    # TODO: put path address in the argument
+    # Embedding is not considered in this experiment
     # q_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_q_split15.pt'
     # f_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_f_split15.pt'
 
@@ -76,21 +74,22 @@ def main(opt):
 
     # get all encoder parameters
     enc_params = source_encoder.state_dict()
-    # print(enc_params.keys())
-    # keys:['embedding.weight', 'lstm.i2h.weight', 'lstm.i2h.bias', 'lstm.h2h.weight', 'lstm.h2h.bias']
     # get all decoder parameters
     dec_params = source_decoder.state_dict()
-    # print(dec_params.keys())
     # get all attn decoder parameters
     attn_params = source_attention_decoder.state_dict()
-    # print(attn_params.keys())
 
     managers = pkl.load(open("{}/map.pkl".format(opt.data_dir), "rb"))
     word_manager, form_manager = managers
+    # GPU Settings
     using_gpu = False
     if opt.gpuid > -1:
         using_gpu = True
         torch.cuda.manual_seed(opt.seed)
+    # Transfer Learning Settings: LSTM or all transfer
+    all_transfer = True
+    if opt.attention_transfer == 0:
+        all_transfer = False
     # get all initial weight to transfer
     enc_params.pop('embedding.weight')
     dec_params.pop('embedding.weight')
@@ -106,7 +105,6 @@ def main(opt):
         decoder = decoder.cuda()
         attention_decoder = attention_decoder.cuda()
     # init parameters
-    # TODO: option for initialize embedding with external file --> torch type
     for name, param in encoder.named_parameters():
         if param.requires_grad:
             init.uniform_(param, -opt.init_weight, opt.init_weight)
@@ -119,8 +117,8 @@ def main(opt):
 
     encoder.load_state_dict(enc_params, strict=False)
     decoder.load_state_dict(dec_params, strict=False)
-
-    # attention_decoder.load_state_dict(attn_params, strict=False)
+    if all_transfer:
+        attention_decoder.load_state_dict(attn_params, strict=False)
 
     # encoder.initEmbedding(q_emb_path) # trainable
     # decoder.initEmbedding(f_emb_path) # trainable
@@ -145,7 +143,6 @@ def main(opt):
                                           alpha=optim_state["alpha"])
         attention_decoder_optimizer = optim.RMSprop(attention_decoder.parameters(), lr=optim_state["learningRate"],
                                                     alpha=optim_state["alpha"])
-    # TODO: add other method for opt.opt_method
     criterion = nn.NLLLoss(reduction='sum', ignore_index=0)
 
     print("Starting training.")
@@ -153,8 +150,6 @@ def main(opt):
     decoder.train()
     attention_decoder.train()
     iterations = opt.max_epochs * train_loader.num_batch
-    # print (train_loader.num_batch)
-    # print ('# of iterations:{}'.format(iterations))
     eval_data = pkl.load(open("{}/test.pkl".format(opt.data_dir), "rb"))
     for i in range(iterations):
         epoch = i // train_loader.num_batch
@@ -177,7 +172,8 @@ def main(opt):
 
         end_time = time.time()
         if i % opt.print_every == 0:
-            print("{}/{}, train_loss = {}, time/batch = {}".format(i, iterations, train_loss, (end_time - start_time) / 60))
+            print("{}/{}, train_loss = {}, time/batch = {}"
+                  .format(i, iterations, train_loss, (end_time - start_time) / 60))
 
         # TODO: create several checkpoint
         # on last iteration
@@ -221,8 +217,8 @@ if __name__ == "__main__":
     main_arg_parser.add_argument('-dec_seq_length', type=int, default=100,
                                  help='number of timesteps to unroll for')
     main_arg_parser.add_argument('-batch_size', type=int, default=20,
-                                 help='number of sequences to train on in parallel')  # default: 80
-    main_arg_parser.add_argument('-max_epochs', type=int, default=90,  # change from the original for testing purpose, should be 90
+                                 help='number of sequences to train on in parallel')
+    main_arg_parser.add_argument('-max_epochs', type=int, default=90,
                                  help='number of full passes through the training data')
     main_arg_parser.add_argument('-opt_method', type=int, default=0, help='optimization method: 0-rmsprop 1-sgd')
     main_arg_parser.add_argument('-learning_rate', type=float, default=0.01, help='learning rate')
@@ -234,6 +230,8 @@ if __name__ == "__main__":
                                  help='in number of epochs, when to restart the optimization')
     main_arg_parser.add_argument('-decay_rate', type=float, default=0.95, help='decay rate for rmsprop')
     main_arg_parser.add_argument('-grad_clip', type=int, default=5, help='clip gradients at this value')
+    main_arg_parser.add_argument('-attention_transfer', type=int, default=1,
+                                 help='0 for only LSTM parameters, 1 for all transfer')
 
     args = main_arg_parser.parse_args()
     main(args)

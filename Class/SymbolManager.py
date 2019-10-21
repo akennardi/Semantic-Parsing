@@ -8,6 +8,11 @@ import torch
 import os
 from operator import itemgetter
 
+"""
+Class to manage symbol and keep track index
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 
 class SymbolManager:
     """class is adapted from baseline code"""

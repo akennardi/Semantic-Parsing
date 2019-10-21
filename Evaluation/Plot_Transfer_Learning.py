@@ -10,6 +10,16 @@ matplotlib.use('Agg')
 
 
 def plot_acc(acc_transfer, acc_target, subsets, filename, title='Src Accuracy'):
+    """
+    Generate a plot from a model trained with all subsets and full training sample.
+    The function will generate external plot file in ".pdf" format.
+    :param acc_transfer: list of transfer learning accuracies
+    :param acc_target: list of model without transfer learning accuracies
+    :param subsets: list of subset
+    :param filename: filename to save file
+    :param title: title of plot
+    :return: None
+    """
     subsets = np.append(subsets, [100])
     plt.title(title, fontsize=15)
     plt.xlabel('Subset data fraction (%)', fontsize=15)
@@ -31,6 +41,15 @@ def plot_acc(acc_transfer, acc_target, subsets, filename, title='Src Accuracy'):
 
 
 def plot_all_acc(opt, all_transfers, all_targets):
+    """
+    Generate plot from models trained with all subsets and full training sample in three different transfer learning
+    setup.
+    Function to generate plot in the report. The function will generate external plot file in ".pdf" format
+    :param opt: argument parser args
+    :param all_transfers: list of all model checkpoints from transfer learning
+    :param all_targets: list of all model checkpoints without transfer learning
+    :return: None
+    """
     plt.figure(figsize=(15, 5))  # To be adjusted --> Size for ALTA (15,4)
 
     # Plot ATIS to Geo
@@ -109,6 +128,13 @@ def plot_all_acc(opt, all_transfers, all_targets):
 
 
 def convert_to_string(idx_list, form_manager):
+    """
+    Function to convert the id into string of meaning representation.
+    Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+    :param idx_list: list of id sequence
+    :param form_manager: meaning representation manager from symbol manager class
+    :return: Meaning representation in String
+    """
     w_list = []
     for i in range(len(idx_list)):
         w_list.append(form_manager.get_idx_symbol(int(idx_list[i])))
@@ -116,6 +142,20 @@ def convert_to_string(idx_list, form_manager):
 
 
 def do_generate(encoder, decoder, attention_decoder, enc_w_list, word_manager, form_manager, opt, using_gpu, checkpoint):
+    """
+    Function to generate the meaning representation from the model stored in the checkpoint
+    Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+    :param encoder: encoder LSTM model
+    :param decoder: decoder LSTM model
+    :param attention_decoder: attention decoder model
+    :param enc_w_list: list of input sequence
+    :param word_manager: input sequence manager from symbol manager class
+    :param form_manager: meaning representation manager from symbol manager class
+    :param opt: argument parser
+    :param using_gpu: argument indicating GPU usage
+    :param checkpoint: checkpoint folder where the model is stored
+    :return: prediction of meaning representation
+    """
     # initialize the rnn state to all zeros
     enc_w_list.append(word_manager.get_symbol_idx('<S>'))
     enc_w_list.insert(0, word_manager.get_symbol_idx('<E>'))
@@ -159,6 +199,14 @@ def do_generate(encoder, decoder, attention_decoder, enc_w_list, word_manager, f
 
 
 def get_all_acc(all_models, opt, subsets, data_dir):
+    """
+    Function to copmpute accuracies of all model trained with subset data set
+    :param all_models: list of all models (checkpoint folder)
+    :param opt: argument parser
+    :param subsets: list of subset {10,20,...,90}
+    :param data_dir: directory of the data used
+    :return: list of model accuracy of every subset
+    """
     all_acc = []
     for n, model in enumerate(all_models):
         checkpoint = model
@@ -213,6 +261,13 @@ def get_all_acc(all_models, opt, subsets, data_dir):
 
 
 def get_acc(model, opt, data_dir):
+    """
+    Compute accuracy of a model
+    :param model: model from checkpoint
+    :param opt:  argument parser
+    :param data_dir: directory of the data used for experiment
+    :return: accuracy
+    """
     checkpoint = model
     encoder = checkpoint["encoder"]
     decoder = checkpoint["decoder"]
@@ -263,6 +318,15 @@ def get_acc(model, opt, data_dir):
 
 
 def get_list_acc(opt, model_transfer, model_target, model_name, data_dir):
+    """
+    Compute accuracies of all model.
+    :param opt: argument parser
+    :param model_transfer: checkpoint of source task model
+    :param model_target: checkpoint of target task model
+    :param model_name: name of the model
+    :param data_dir: directory of the data used for experiment
+    :return: list of accuracies as 3 lists.
+    """
     start = 100 / args.subset_split
     all_data_subset = np.linspace(start, 100 - start, (opt.subset_split - 1),
                                   dtype=int)  # [10 20 30 40 50 60 70 80 90]

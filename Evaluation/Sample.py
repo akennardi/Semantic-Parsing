@@ -1,8 +1,20 @@
 from Src.seq2seq_attn import *
 from Evaluation import Util
 
+"""
+Script to perform evaluation on the model.
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 
 def convert_to_string(idx_list, form_manager):
+    """
+    Function to convert the id into string of meaning representation.
+    Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+    :param idx_list: list of id sequence
+    :param form_manager: meaning representation manager from symbol manager class
+    :return: Meaning representation in String
+    """
     w_list = []
     for i in range(len(idx_list)):
         w_list.append(form_manager.get_idx_symbol(int(idx_list[i])))
@@ -10,6 +22,19 @@ def convert_to_string(idx_list, form_manager):
 
 
 def do_generate(encoder, decoder, attention_decoder, enc_w_list, word_manager, form_manager, opt, using_gpu):
+    """
+    Function to generate the meaning representation from the model stored in the checkpoint
+    Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+    :param encoder: encoder LSTM model
+    :param decoder: decoder LSTM model
+    :param attention_decoder: attention decoder model
+    :param enc_w_list: list of input sequence
+    :param word_manager: input sequence manager from symbol manager class
+    :param form_manager: meaning representation manager from symbol manager class
+    :param opt: argument parser
+    :param using_gpu: argument indicating GPU usage
+    :return: prediction of meaning representation
+    """
     # initialize the rnn state to all zeros
     enc_w_list.append(word_manager.get_symbol_idx('<S>'))
     enc_w_list.insert(0, word_manager.get_symbol_idx('<E>'))
@@ -21,10 +46,8 @@ def do_generate(encoder, decoder, attention_decoder, enc_w_list, word_manager, f
         prev_c = prev_c.cuda()
         prev_h = prev_h.cuda()
         enc_outputs = enc_outputs.cuda()
-    # TODO check that c,h are zero on each iteration
     # reversed order
     for i in range(end-1, -1, -1):
-        # TODO verify that this matches the copy_table etc in sample.lua
         cur_input = torch.tensor(np.array(enc_w_list[i]), dtype=torch.long)
         if using_gpu:
             cur_input = cur_input.cuda()

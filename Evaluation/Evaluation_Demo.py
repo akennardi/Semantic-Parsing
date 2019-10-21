@@ -1,5 +1,6 @@
 from Src.seq2seq_attn import *
 from Evaluation import Util
+# Not used in the report
 
 
 def convert_to_string(idx_list, form_manager):

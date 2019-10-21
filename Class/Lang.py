@@ -1,5 +1,7 @@
 from nltk.tokenize import MWETokenizer
 
+# class Lang is class to handle vocabulary
+
 
 class Lang:
     def __init__(self):

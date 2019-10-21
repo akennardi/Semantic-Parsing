@@ -124,7 +124,6 @@ def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encode
 
 
 def main(opt):
-    # TODO: put path address in the argument
     # q_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_q_split15.pt'
     # f_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_f_split15.pt'
     random.seed(opt.seed)
@@ -147,7 +146,6 @@ def main(opt):
         attention_decoder = attention_decoder.cuda()
     # init parameters
 
-    # TODO: option for initialize embedding with external file --> torch type
     for name, param in encoder.named_parameters():
         if param.requires_grad:
             init.uniform_(param, -opt.init_weight, opt.init_weight)
@@ -170,10 +168,6 @@ def main(opt):
     if not os.path.exists(opt.checkpoint_dir):
         os.makedirs(opt.checkpoint_dir)
 
-    # start training
-
-    # step = 0
-    # epoch = 0
     optim_state = {"learningRate": opt.learning_rate, "alpha": opt.decay_rate}
     # default to RMSprop
     if opt.opt_method == 0:
@@ -191,8 +185,6 @@ def main(opt):
     decoder.train()
     attention_decoder.train()
     iterations = opt.max_epochs * train_loader.num_batch
-    # print (train_loader.num_batch)
-    # print ('# of iterations:{}'.format(iterations))
     eval_data = pkl.load(open("{}/test.pkl".format(opt.data_dir), "rb"))
     for i in range(iterations):
         epoch = i // train_loader.num_batch
@@ -217,7 +209,6 @@ def main(opt):
         if i % opt.print_every == 0:
             print("{}/{}, train_loss = {}, time/batch = {}".format(i, iterations, train_loss, (end_time - start_time) / 60))
 
-        # TODO: create several checkpoint
         # on last iteration
         if i == iterations - 1:
             checkpoint = {}

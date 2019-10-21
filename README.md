@@ -16,7 +16,7 @@ Dr. Qing Wang and Dr. Gabriela Ferraro
 
 2. Folder `Evaluation` consists of all scripts to run evaluation and plot.
 After running the experiment, the log file in `.txt` format can be found in Sub-folder `Output`
-After running plot script, the plot in `pdf` can be found in Sub-folder `Plot`
+After running plot script, the plot in `.pdf` can be found in Sub-folder `Plot`
 
 3. Folder `Experiment` consists of all shell scripts to run the experiment
 
