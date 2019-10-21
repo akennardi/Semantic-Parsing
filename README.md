@@ -11,3 +11,5 @@ Repository for COMP8755 Individual Computing Project
 **Run Experiments**
 
 **Acknowledgement**
+
+**Software and Package Requirement**: See the requirements.txt
