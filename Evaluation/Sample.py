@@ -1,4 +1,4 @@
-from Model.seq2seq_attn import *
+from Src.seq2seq_attn import *
 from Evaluation import Util
 
 
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     main_arg_parser.add_argument('-data_dir', type=str, default='../Data/GEO', help='data path')
     main_arg_parser.add_argument('-input', type=str, default='test.t7', help='input data filename')
     main_arg_parser.add_argument('-output', type=str, default='Output/seq2seq_attention_output_on_geo.txt', help='input data filename')
-    main_arg_parser.add_argument('-model', type=str, default='../Model/checkpoint_dir/model_seq2seq_attention', help='model checkpoint to use for sampling')
+    main_arg_parser.add_argument('-model', type=str, default='../Src/checkpoint_dir/model_seq2seq_attention', help='model checkpoint to use for sampling')
     main_arg_parser.add_argument('-seed', type=int, default=123,help='torch manual random number generator seed')
 
     # parse input params

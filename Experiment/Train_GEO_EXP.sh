@@ -2,7 +2,7 @@
 
 DATA_DIR=../Data/GEO_EXP
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 

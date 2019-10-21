@@ -1,4 +1,4 @@
-from Model.seq2seq_attn import *
+from Src.seq2seq_attn import *
 from Evaluation import Util
 import matplotlib
 import matplotlib.pyplot as plt
@@ -9,7 +9,7 @@ import numpy as np
 matplotlib.use('Agg')
 
 
-def plot_acc(acc_transfer, acc_target, subsets, filename, title='Model Accuracy'):
+def plot_acc(acc_transfer, acc_target, subsets, filename, title='Src Accuracy'):
     subsets = np.append(subsets, [100])
     plt.title(title, fontsize=15)
     plt.xlabel('Subset data fraction (%)', fontsize=15)
@@ -300,18 +300,18 @@ main_arg_parser.add_argument('-gpuid', type=int, default=-1, help='which gpu to 
 main_arg_parser.add_argument('-data_dir', type=str, default='../Data/GEO_EXP', help='data path')
 main_arg_parser.add_argument('-sample', type=int, default=0, help='0 to use max at each time step')
 main_arg_parser.add_argument('-display', type=int, default=0, help='whether display on console')
-main_arg_parser.add_argument('-model_transfer', type=str, default='../Model/checkpoint_atis_geo_xx_transfer')
-main_arg_parser.add_argument('-model_target', type=str, default='../Model/checkpoint_geo_xx')
-main_arg_parser.add_argument('-model_transfer2', type=str, default='../Model/checkpoint_atis_geo_exp_xx_transfer')
-main_arg_parser.add_argument('-model_target2', type=str, default='../Model/checkpoint_geo_exp_xx')
-main_arg_parser.add_argument('-model_transfer3', type=str, default='../Model/checkpoint_atis_geo_exp_query_xx_transfer')
-main_arg_parser.add_argument('-model_target3', type=str, default='../Model/checkpoint_geo_exp_query_xx')
+main_arg_parser.add_argument('-model_transfer', type=str, default='../Src/checkpoint_atis_geo_xx_transfer')
+main_arg_parser.add_argument('-model_target', type=str, default='../Src/checkpoint_geo_xx')
+main_arg_parser.add_argument('-model_transfer2', type=str, default='../Src/checkpoint_atis_geo_exp_xx_transfer')
+main_arg_parser.add_argument('-model_target2', type=str, default='../Src/checkpoint_geo_exp_xx')
+main_arg_parser.add_argument('-model_transfer3', type=str, default='../Src/checkpoint_atis_geo_exp_query_xx_transfer')
+main_arg_parser.add_argument('-model_target3', type=str, default='../Src/checkpoint_geo_exp_query_xx')
 main_arg_parser.add_argument('-plot_all', type=int, default=0,
                              help='0 plot 1 figure, 1 plot everything as sub-figure')
 main_arg_parser.add_argument('-model_name', type=str, default='/model_seq2seq_attention')
 main_arg_parser.add_argument('-subset_split', type=int, default=10)
 main_arg_parser.add_argument('-filename', type=str, default='./Plot/Transfer_Learning_ATIS_GEO_EXP')
-main_arg_parser.add_argument('-title', type=str, default='Model Accuracy')
+main_arg_parser.add_argument('-title', type=str, default='Src Accuracy')
 
 args = main_arg_parser.parse_args()
 using_gpu = False

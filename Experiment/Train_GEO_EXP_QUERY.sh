@@ -2,7 +2,7 @@
 
 DATA_DIR=../Data/GEO_EXP_QUERY
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 
@@ -12,4 +12,4 @@ python -u seq2seq_attn.py -checkpoint_dir checkpoint_geo_exp_query -data_dir $DA
 cd ../Evaluation
 
 python Sample.py -data_dir $DATA_DIR -output Output/seq2seq_attention_output_on_geo_exp_query.txt\
- -model ../Model/checkpoint_geo_exp_query/model_seq2seq_attention
+ -model ../Src/checkpoint_geo_exp_query/model_seq2seq_attention

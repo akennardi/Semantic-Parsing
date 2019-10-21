@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 
@@ -8,4 +8,4 @@ python -u seq2seq_attn.py -checkpoint_dir checkpoint_atis_exp -data_dir ../Data/
 
 cd ../Evaluation
 
-python Sample.py -data_dir ../Data/ATIS_EXP -output Output/seq2seq_attention_output_on_atis_exp.txt -model ../Model/checkpoint_atis_exp/model_seq2seq_attention
+python Sample.py -data_dir ../Data/ATIS_EXP -output Output/seq2seq_attention_output_on_atis_exp.txt -model ../Src/checkpoint_atis_exp/model_seq2seq_attention

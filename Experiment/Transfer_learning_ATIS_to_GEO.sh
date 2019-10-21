@@ -26,18 +26,18 @@ declare -a output=(Output/seq2seq_attention_output_atis_geo_10_transfer.txt
                    Output/seq2seq_attention_output_atis_geo_90_transfer.txt
                    Output/seq2seq_attention_output_atis_geo_transfer.txt)
 
-declare -a model=(../Model/checkpoint_atis_geo_10_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_20_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_30_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_40_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_50_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_60_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_70_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_80_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_90_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_transfer/model_seq2seq_attention)
+declare -a model=(../Src/checkpoint_atis_geo_10_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_20_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_30_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_40_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_50_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_60_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_70_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_80_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_90_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_transfer/model_seq2seq_attention)
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 
@@ -49,7 +49,7 @@ do
     TARGET_DIR=${subset[$i]}
     CHECKPOINT=${checkpoint[$i]}
     python -u seq2seq_attn_transfer_learning.py -checkpoint_dir $CHECKPOINT\
-    -data_dir $TARGET_DIR -print_every 300 -seed 1000 -model ../Model/checkpoint_atis_transfer/model_seq2seq_attention\
+    -data_dir $TARGET_DIR -print_every 300 -seed 1000 -model ../Src/checkpoint_atis_transfer/model_seq2seq_attention\
      -max_epochs 150
 done
 
@@ -57,7 +57,7 @@ cd ../Evaluation
 
 python Sample.py -data_dir $SOURCE_DIR\
  -output Output/seq2seq_attention_output_atis_transfer.txt\
- -model ../Model/checkpoint_atis_transfer/model_seq2seq_attention
+ -model ../Src/checkpoint_atis_transfer/model_seq2seq_attention
 
 for i in ${!subset[*]};
 do

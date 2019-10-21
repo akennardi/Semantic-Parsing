@@ -25,18 +25,18 @@ declare -a output=(Output/seq2seq_attention_output_geo_10.txt
                    Output/seq2seq_attention_output_geo_90.txt
                    Output/seq2seq_attention_output_geo.txt)
 
-declare -a model=(../Model/checkpoint_geo_10/model_seq2seq_attention
-                  ../Model/checkpoint_geo_20/model_seq2seq_attention
-                  ../Model/checkpoint_geo_30/model_seq2seq_attention
-                  ../Model/checkpoint_geo_40/model_seq2seq_attention
-                  ../Model/checkpoint_geo_50/model_seq2seq_attention
-                  ../Model/checkpoint_geo_60/model_seq2seq_attention
-                  ../Model/checkpoint_geo_70/model_seq2seq_attention
-                  ../Model/checkpoint_geo_80/model_seq2seq_attention
-                  ../Model/checkpoint_geo_90/model_seq2seq_attention
-                  ../Model/checkpoint_geo/model_seq2seq_attention)
+declare -a model=(../Src/checkpoint_geo_10/model_seq2seq_attention
+                  ../Src/checkpoint_geo_20/model_seq2seq_attention
+                  ../Src/checkpoint_geo_30/model_seq2seq_attention
+                  ../Src/checkpoint_geo_40/model_seq2seq_attention
+                  ../Src/checkpoint_geo_50/model_seq2seq_attention
+                  ../Src/checkpoint_geo_60/model_seq2seq_attention
+                  ../Src/checkpoint_geo_70/model_seq2seq_attention
+                  ../Src/checkpoint_geo_80/model_seq2seq_attention
+                  ../Src/checkpoint_geo_90/model_seq2seq_attention
+                  ../Src/checkpoint_geo/model_seq2seq_attention)
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 

@@ -1,6 +1,6 @@
 # TODO: implement training a transfer learning model here
 
-from Model.seq2seq_attn import *
+from Src.seq2seq_attn import *
 
 
 def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer, attention_decoder_optimizer, criterion, using_gpu, form_manager):
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     start = time.time()
     main_arg_parser = argparse.ArgumentParser(description="parser")
     main_arg_parser.add_argument('-gpuid', type=int, default=-1, help='which gpu to use. -1 = use CPU')
-    main_arg_parser.add_argument('-model', type=str, default='../Model/checkpoint_atis_transfer/model_seq2seq_attention',
+    main_arg_parser.add_argument('-model', type=str, default='../Src/checkpoint_atis_transfer/model_seq2seq_attention',
                                  help='model checkpoint to use for sampling')
     main_arg_parser.add_argument('-data_dir', type=str, default='../Data/GEO', help='data path')
     main_arg_parser.add_argument('-seed', type=int, default=123, help='torch manual random number generator seed')

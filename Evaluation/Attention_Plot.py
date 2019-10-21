@@ -1,4 +1,4 @@
-from Model.seq2seq_attn import *
+from Src.seq2seq_attn import *
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -134,7 +134,7 @@ def plot_attention(checkpoint, data_dir, idx, opt, using_gpu=False):
     plt.clf()
 
 
-test_path = '../Model/checkpoint_dir_atis/model_seq2seq_attention'
+test_path = '../Src/checkpoint_dir_atis/model_seq2seq_attention'
 model = torch.load(test_path)
 
 main_arg_parser = argparse.ArgumentParser(description="parser")

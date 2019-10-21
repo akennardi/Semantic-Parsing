@@ -19,12 +19,12 @@ declare -a source=(Output/seq2seq_attention_output_atis_80_transfer.txt
                    Output/seq2seq_attention_output_atis_30_transfer.txt
                    Output/seq2seq_attention_output_atis_15_transfer.txt)
 
-declare -a model=(../Model/checkpoint_atis_80_geo_50_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_45_geo_50_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_30_geo_50_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_15_geo_50_transfer/model_seq2seq_attention)
+declare -a model=(../Src/checkpoint_atis_80_geo_50_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_45_geo_50_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_30_geo_50_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_15_geo_50_transfer/model_seq2seq_attention)
 
-#cd ../Model
+#cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 

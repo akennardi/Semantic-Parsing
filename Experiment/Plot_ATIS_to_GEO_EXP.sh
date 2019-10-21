@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 DATA_DIR=../Data/GEO_EXP
-MODEL_TRANSFER=../Model/checkpoint_atis_geo_exp_xx_transfer
-MODEL_TARGET=../Model/checkpoint_geo_exp_xx
+MODEL_TRANSFER=../Src/checkpoint_atis_geo_exp_xx_transfer
+MODEL_TARGET=../Src/checkpoint_geo_exp_xx
 FILENAME=./Plot/Transfer_Learning_ATIS_GEO_EXP_ATT
 
 export PYTHONPATH=${PYTHONPATH}:../

@@ -25,18 +25,18 @@ declare -a output=(Output/seq2seq_attention_output_geo_exp_10.txt
                    Output/seq2seq_attention_output_geo_exp_90.txt
                    Output/seq2seq_attention_output_geo_exp.txt)
 
-declare -a model=(../Model/checkpoint_geo_exp_10/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_20/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_30/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_40/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_50/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_60/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_70/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_80/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp_90/model_seq2seq_attention
-                  ../Model/checkpoint_geo_exp/model_seq2seq_attention)
+declare -a model=(../Src/checkpoint_geo_exp_10/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_20/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_30/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_40/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_50/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_60/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_70/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_80/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp_90/model_seq2seq_attention
+                  ../Src/checkpoint_geo_exp/model_seq2seq_attention)
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 

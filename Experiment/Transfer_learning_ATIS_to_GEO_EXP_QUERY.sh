@@ -27,18 +27,18 @@ declare -a output=(Output/seq2seq_attention_output_atis_geo_exp_query_10_transfe
                    Output/seq2seq_attention_output_atis_geo_exp_query_90_transfer.txt
                    Output/seq2seq_attention_output_atis_geo_exp_query_transfer.txt)
 
-declare -a model=(../Model/checkpoint_atis_geo_exp_query_10_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_20_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_30_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_40_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_50_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_60_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_70_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_80_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_90_transfer/model_seq2seq_attention
-                  ../Model/checkpoint_atis_geo_exp_query_transfer/model_seq2seq_attention)
+declare -a model=(../Src/checkpoint_atis_geo_exp_query_10_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_20_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_30_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_40_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_50_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_60_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_70_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_80_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_90_transfer/model_seq2seq_attention
+                  ../Src/checkpoint_atis_geo_exp_query_transfer/model_seq2seq_attention)
 
-cd ../Model
+cd ../Src
 
 export PYTHONPATH=${PYTHONPATH}:../
 
@@ -51,14 +51,14 @@ do
     CHECKPOINT=${checkpoint[$i]}
     python -u seq2seq_attn_transfer_learning.py -checkpoint_dir $CHECKPOINT\
     -data_dir $TARGET_DIR -print_every 300 -seed 1000\
-     -model ../Model/checkpoint_atis_exp_query_transfer/model_seq2seq_attention -max_epochs 180
+     -model ../Src/checkpoint_atis_exp_query_transfer/model_seq2seq_attention -max_epochs 180
 done
 
 cd ../Evaluation
 
 python Sample.py -data_dir $SOURCE_DIR\
  -output Output/seq2seq_attention_output_atis_exp_transfer.txt\
- -model ../Model/checkpoint_atis_exp_query_transfer/model_seq2seq_attention
+ -model ../Src/checkpoint_atis_exp_query_transfer/model_seq2seq_attention
 
 for i in ${!subset[*]};
 do
