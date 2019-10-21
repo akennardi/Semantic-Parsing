@@ -4,7 +4,7 @@ cd ../Model
 
 export PYTHONPATH=${PYTHONPATH}:../
 
-python -u seq2seq_attn.py -checkpoint_dir checkpoint_atis_ori_default -data_dir ../Data/ATIS_EXP -print_every 500 -rnn_size 200 -dropout 0.4 -enc_seq_length 50 -dec_seq_length 150 -max_epochs 80
+python -u seq2seq_attn.py -checkpoint_dir checkpoint_atis_exp -data_dir ../Data/ATIS_EXP -print_every 500 -rnn_size 200 -dropout 0.4 -enc_seq_length 50 -dec_seq_length 150 -max_epochs 80
 
 cd ../Evaluation
 
