@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fec9133-718c-4141-a37b-ef9ec256b8ef" name="Default Changelist" comment="" />
+    <list default="true" id="6fec9133-718c-4141-a37b-ef9ec256b8ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SUU0Jkqmn8czCCAKgC5umkHzhu" />
   <component name="PropertiesComponent">
@@ -25,6 +31,72 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Bash.Transfer_learning_ATIS_to_GEO_EXP_QUERY.sh">
+    <configuration name="Train_Subset_GEO_EXP.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="Semantic Parsing" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Experiment" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experiment/Train_Subset_GEO_EXP.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Train_Subset_GEO.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="Semantic Parsing" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Experiment" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experiment/Train_Subset_GEO.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Transfer_learning_ATIS_to_GEO_EXP_QUERY.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="Semantic Parsing" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Experiment" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experiment/Transfer_learning_ATIS_to_GEO_EXP_QUERY.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Transfer_learning_ATIS_to_GEO_EXP.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="Semantic Parsing" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Experiment" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experiment/Transfer_learning_ATIS_to_GEO_EXP.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Transfer_learning_ATIS_to_GEO.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="Semantic Parsing" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Experiment" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experiment/Transfer_learning_ATIS_to_GEO.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Bash.Transfer_learning_ATIS_to_GEO_EXP_QUERY.sh" />
+        <item itemvalue="Bash.Transfer_learning_ATIS_to_GEO_EXP.sh" />
+        <item itemvalue="Bash.Transfer_learning_ATIS_to_GEO.sh" />
+        <item itemvalue="Bash.Train_Subset_GEO_EXP.sh" />
+        <item itemvalue="Bash.Train_Subset_GEO.sh" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -36,6 +108,39 @@
       <option name="presentableId" value="Default" />
       <updated>1571617443413</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add Requirements.txt. Update Readme.md">
+      <created>1571622517154</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571622517154</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Renaming Folder Model to Src">
+      <created>1571654958673</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571654958673</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Requirements.txt. Update Readme.md" />
+    <MESSAGE value="Renaming Folder Model to Src" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renaming Folder Model to Src" />
   </component>
 </project>
