@@ -26,6 +26,8 @@ After running plot script, the plot in `.pdf` can be found in Sub-folder `Plot`
  
 **Experiments**
 
+The code can be retrieved from ANU Gitlab from [here](https://gitlab.cecs.anu.edu.au/u6340513/semantic-parsing)
+
 All the pre-processing step and experiments are stored in `Experiment` Folder.
 Therefore, the code should be run from this folder
 
@@ -49,4 +51,6 @@ The code implemented here are based on the implementation from [here](https://gi
 
 **Software and Package Requirement**: 
 
-See the `requirements.txt`
+See the `requirements.txt` for package dependencies.
+
+We used Intel Core i5 2.3GHZ and macOS Mojave to run the experiment.

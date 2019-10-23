@@ -10,6 +10,8 @@ import torch.nn as nn
 import warnings
 import numpy as np
 
+# not used in the report
+
 
 main_arg_parser = argparse.ArgumentParser(description="parser")
 main_arg_parser.add_argument("-embed_dir", type=str, default="../Embedding/",
