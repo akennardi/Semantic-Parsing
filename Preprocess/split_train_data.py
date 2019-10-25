@@ -1,4 +1,5 @@
 # The Code is used to create training data subset
+# not used in the project, use split_data_bucket instead
 
 from sklearn.model_selection import train_test_split
 import argparse

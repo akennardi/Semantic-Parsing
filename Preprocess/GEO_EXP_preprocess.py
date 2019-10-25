@@ -2,6 +2,10 @@ import os
 import argparse
 import json
 
+"""
+Script to perform GeoQuery preprocess to generate GeoQuery Un-anonymised and GeoQuery Un-anonymised with query split
+"""
+
 
 def write_txt_file(output_file, data_list):
     with open(output_file, 'w') as output:

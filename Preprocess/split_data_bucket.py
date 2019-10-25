@@ -3,6 +3,10 @@ import argparse
 import os
 from sklearn.utils import shuffle
 
+"""
+Script to separate data set (GeoQuery) into 10 subset
+"""
+
 
 def get_subset(data, opt):
     last = int(opt.subset_size * (len(train_set))) + 1

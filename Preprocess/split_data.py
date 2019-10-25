@@ -5,7 +5,6 @@ import os
 
 test_path = '../Data/ATIS_EXP/atis-logic-exp.txt'
 
-# TODO: change back all separator to ' ||| '
 
 
 def data_split(path, val_size, test_size):

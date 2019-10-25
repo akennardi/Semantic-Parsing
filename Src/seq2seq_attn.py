@@ -16,6 +16,13 @@ import time
 from Class.LSTM import LSTM
 from Class.MiniBatchLoader import MiniBatchLoader
 
+"""
+This module was adapted from baseline model.
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
+# The RNN Class is used to wrap the encoder and decoder LSTM
+
 
 class RNN(nn.Module):
     def __init__(self, opt, input_size):
@@ -38,6 +45,8 @@ class RNN(nn.Module):
         self.embedding.load_state_dict(torch.load(emb_path))
         # self.embedding.weight.requires_grad = False
         # use argument to select whether embedding will be fine-tuned
+
+# The AttnUnit Class is used to wrap the attention layers
 
 
 class AttnUnit(nn.Module):
@@ -67,7 +76,23 @@ class AttnUnit(nn.Module):
         return pred
 
 
-def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer, attention_decoder_optimizer, criterion, using_gpu, form_manager):
+def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer,
+                  attention_decoder_optimizer, criterion, using_gpu, form_manager):
+    """
+    Perform forward pass of the model and compute loss
+    :param opt: argument parser
+    :param train_loader: MiniBatchLoader
+    :param encoder: model encoder
+    :param decoder: model decoder
+    :param attention_decoder: attention layers
+    :param encoder_optimizer: encoder optimizer
+    :param decoder_optimizer: decoder optimizer
+    :param attention_decoder_optimizer: attention layers optimizer
+    :param criterion: loss function
+    :param using_gpu: GPU
+    :param form_manager: symbol manager
+    :return: loss
+    """
     # encode, decode, backward, return loss
     encoder_optimizer.zero_grad()
     decoder_optimizer.zero_grad()
@@ -124,6 +149,11 @@ def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encode
 
 
 def main(opt):
+    """
+    Main Function to perform training and save the model as a checkpoint
+    :param opt: argument parser
+    :return: None
+    """
     # q_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_q_split15.pt'
     # f_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_f_split15.pt'
     random.seed(opt.seed)

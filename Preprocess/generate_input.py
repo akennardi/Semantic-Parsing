@@ -8,6 +8,12 @@ import numpy as np
 
 
 def process_train_data(opt):
+    """
+    Function to generate persistent of training symbol manager.
+    Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+    :param opt: argument parser
+    :return: None
+    """
     time_start = time.time
     word_manager = SymbolManager(True)
     word_manager.init_from_file("{}/vocab.q.txt".format(opt.data_dir), opt.min_freq, opt.max_vocab_size)
@@ -31,6 +37,12 @@ def process_train_data(opt):
 
 
 def serialize_data(opt, mode):
+    """
+    Function to generate input file
+    :param opt: argument parser
+    :param mode: train/test/dev
+    :return: None
+    """
     data = []
     managers = pkl.load(open("{}/map.pkl".format(opt.data_dir), "rb"))
     word_manager, form_manager = managers

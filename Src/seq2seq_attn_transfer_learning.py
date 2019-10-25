@@ -1,8 +1,28 @@
 from Src.seq2seq_attn import *
 
+"""
+This module was adapted from baseline model with modification to perform transfer learning.
+Reference: https://github.com/Alex-Fabbri/lang2logic-PyTorch
+"""
+
 
 def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encoder_optimizer, decoder_optimizer,
                   attention_decoder_optimizer, criterion, using_gpu, form_manager):
+    """
+    Perform forward pass of the model and compute loss
+    :param opt: argument parser
+    :param train_loader: MiniBatchLoader
+    :param encoder: model encoder
+    :param decoder: model decoder
+    :param attention_decoder: attention layers
+    :param encoder_optimizer: encoder optimizer
+    :param decoder_optimizer: decoder optimizer
+    :param attention_decoder_optimizer: attention layers optimizer
+    :param criterion: loss function
+    :param using_gpu: GPU
+    :param form_manager: symbol manager
+    :return: loss
+    """
     # encode, decode, backward, return loss
     encoder_optimizer.zero_grad()
     decoder_optimizer.zero_grad()
@@ -58,6 +78,11 @@ def eval_training(opt, train_loader, encoder, decoder, attention_decoder, encode
 
 
 def main(opt):
+    """
+    Main Function to perform training and save the model as a checkpoint
+    :param opt: argument parser
+    :return:
+    """
     # Embedding is not considered in this experiment
     # q_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_q_split15.pt'
     # f_emb_path = '/Users/alvinkennardi/Documents/Master_of_Computing/COMP8755/Embedding/emb_layer_f_split15.pt'
@@ -114,7 +139,7 @@ def main(opt):
     for name, param in attention_decoder.named_parameters():
         if param.requires_grad:
             init.uniform_(param, -opt.init_weight, opt.init_weight)
-
+    # Here we perform a transfer learning
     encoder.load_state_dict(enc_params, strict=False)
     decoder.load_state_dict(dec_params, strict=False)
     if all_transfer:
@@ -175,7 +200,6 @@ def main(opt):
             print("{}/{}, train_loss = {}, time/batch = {}"
                   .format(i, iterations, train_loss, (end_time - start_time) / 60))
 
-        # TODO: create several checkpoint
         # on last iteration
         if i == iterations - 1:
             checkpoint = {}
