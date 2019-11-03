@@ -42,14 +42,14 @@ cd ../Src
 export PYTHONPATH=${PYTHONPATH}:../
 
 python -u seq2seq_attn.py -checkpoint_dir checkpoint_atis_transfer -data_dir $SOURCE_DIR -print_every 500\
- -rnn_size 150 -dropout 0.5 -enc_seq_length 40 -dec_seq_length 100 -max_epochs 15 -seed 1000
+ -rnn_size 150 -dropout 0.5 -enc_seq_length 40 -dec_seq_length 100 -max_epochs 15 -seed 100
 
 for i in ${!subset[*]};
 do
     TARGET_DIR=${subset[$i]}
     CHECKPOINT=${checkpoint[$i]}
     python -u seq2seq_attn_transfer_learning.py -checkpoint_dir $CHECKPOINT\
-    -data_dir $TARGET_DIR -print_every 300 -seed 1000 -model ../Src/checkpoint_atis_transfer/model_seq2seq_attention\
+    -data_dir $TARGET_DIR -print_every 300 -seed 100 -model ../Src/checkpoint_atis_transfer/model_seq2seq_attention\
      -max_epochs 150
 done
 

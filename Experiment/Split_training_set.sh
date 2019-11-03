@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-SOURCE_DIR=../Data/GEO_EXP
+SOURCE_DIR=../Data/GEO_EXP_Query
 
-declare -a subset=(../Data/GEO_EXP_10 ../Data/GEO_EXP_20 ../Data/GEO_EXP_30  ../Data/GEO_EXP_40
-                   ../Data/GEO_EXP_50 ../Data/GEO_EXP_60 ../Data/GEO_EXP_70
-                   ../Data/GEO_EXP_80 ../Data/GEO_EXP_90)
+declare -a subset=(../Data/GEO_EXP_Query_10 ../Data/GEO_EXP_Query_20 ../Data/GEO_EXP_Query_30  ../Data/GEO_EXP_Query_40
+                   ../Data/GEO_EXP_Query_50 ../Data/GEO_EXP_Query_60 ../Data/GEO_EXP_Query_70
+                   ../Data/GEO_EXP_Query_80 ../Data/GEO_EXP_Query_90)
 
 declare -a size=(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9)
 

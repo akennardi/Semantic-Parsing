@@ -45,7 +45,7 @@ do
     DATA_DIR=${subset[$i]}
     CHECKPOINT=${checkpoint[$i]}
     python -u seq2seq_attn.py -checkpoint_dir $CHECKPOINT -data_dir $DATA_DIR -print_every 300 -rnn_size 150\
-    -dropout 0.5 -enc_seq_length 40 -dec_seq_length 100 -max_epochs 120 -seed 1000
+    -dropout 0.5 -enc_seq_length 40 -dec_seq_length 100 -max_epochs 120 -seed 100
 done
 
 cd ../Evaluation
