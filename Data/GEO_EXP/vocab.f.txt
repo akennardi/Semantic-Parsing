@@ -1,5 +1,5 @@
-(	2678
-capital	52
+(	2646
+capital:	14
 texas	60
 )	2680
 iowa	7
@@ -40,6 +40,7 @@ missouri	12
 york	8
 idaho	3
 alaska	14
+((	34
 next_to	104
 mississippi	30
 arkansas	3
@@ -95,10 +96,10 @@ nebraska	3
 spokane	1
 portland	1
 springfield	7
+capital	38
 wyoming	6
 density	22
 the	20
-((	2
 not	10
 albany	2
 >	5
@@ -108,7 +109,7 @@ states	14
 tennessee	3
 0	1
 rochester	2
-mckinley	2
+mckinley	1
 des	3
 moines	3
 pittsburgh	1
@@ -121,6 +122,7 @@ area	21
 potomac	1
 high_point	1
 sum	3
+m0	1
 mountain	7
 country	2
 west	1

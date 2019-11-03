@@ -1,7 +1,7 @@
 [
     {
         "logic": [
-            "( capital var0 )"
+            "( capital: var0 )"
         ],
         "query-split": "test",
         "sentences": [
@@ -482,7 +482,7 @@
     },
     {
         "logic": [
-            "( lambda $0 e ( and ( state $0 ) ( next_to $0 var0 ) ) )"
+            "(( lambda $0 e ( and ( state $0 ) ( next_to $0 var0 ) ) )"
         ],
         "query-split": "train",
         "sentences": [
@@ -5502,7 +5502,7 @@
     },
     {
         "logic": [
-            "( elevation var0 )"
+            "( elevation m0 )"
         ],
         "query-split": "train",
         "sentences": [
