@@ -1,14 +1,4 @@
-# Repository for COMP8755 Individual Computing Project
-
-**Project Title**
-
-Domain Adaptation for Low-Resource Neural Semantic Parsing
-
-**Supervisor**
-
-Dr. Qing Wang and Dr. Gabriela Ferraro
-
-**Instruction**
+# Domain Adaptation for Low-Resource Neural Semantic Parsing
 
 **Folder**
 
@@ -25,8 +15,6 @@ After running plot script, the plot in `.pdf` can be found in Sub-folder `Plot`
 5. Folder `Src` consists of source code to train the model via transfer learning and without transfer learning
  
 **Experiments**
-
-The code can be retrieved from ANU Gitlab from [here](https://gitlab.cecs.anu.edu.au/u6340513/semantic-parsing)
 
 All the pre-processing step and experiments are stored in `Experiment` Folder.
 Therefore, the code should be run from this folder
